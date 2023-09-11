@@ -12,7 +12,7 @@ router.post("/doctor", async (req, res) => {
     res.status(400).send(error);
   }
 });
-0  
+
 router.get("/doctor", async (req, res) => {
   try {
     const doctor = await DoctorData.find(req.query);
