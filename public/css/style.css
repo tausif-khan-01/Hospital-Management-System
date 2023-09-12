@@ -116,9 +116,9 @@ nav .menu-items {
 .menu-items li {
   list-style: none;
 }
-.menu-items li.active {
+/* .menu-items li.active {
   background-color: var(--primary-color);
-}
+} */
 .menu-items li a {
   display: flex;
   align-items: center;

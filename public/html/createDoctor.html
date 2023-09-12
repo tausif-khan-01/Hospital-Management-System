@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Doctor Registration Form</title>
+    <link rel="stylesheet" href="/css/form.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Registration</div>
+      <div class="content">
+        <form action="/doctor" method="post">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Full Name</span>
+              <input
+                type="text"
+                placeholder="Enter your name"
+                required
+                name="doctorName"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">Username</span>
+              <input
+                type="text"
+                placeholder="Enter your username"
+                required
+                name="username"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input
+                type="text"
+                placeholder="Enter your email"
+                required
+                name="email"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input
+                type="text"
+                placeholder="Enter your number"
+                required
+                name="number"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input
+                type="text"
+                placeholder="Enter your password"
+                required
+                name="password"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">Confirm Password</span>
+              <input type="text" placeholder="Confirm your password" required />
+            </div>
+          </div>
+          <a class="button" href="/admin-dashboard">
+            <input id="reg" type="submit" value="Register" />
+          </a>
+        </form>
+      </div>
+    </div>
+    <script>
+      let a = document.getElementById("reg");
+      a.addEventListener("submit", (e) => {
+        e.preventDefault();
+      });
+    </script>
+  </body>
+</html>

@@ -10,14 +10,12 @@ require("./db/connection");
 
 //express setup
 const app = express();
-const port = process.env.PORT || 8000;  
+const port = process.env.PORT || 8000;
 
 //requiring  costum modules
 const patientRoutes = require("./routers/patientRoutes");
 const doctorRoutes = require("./routers/DoctorRoutes");
 const receptionistRutes = require("./routers/receptionistRutes");
-
-
 
 //necessary directories path
 const viewPath = path.join(__dirname, "../templates/views");
@@ -42,38 +40,52 @@ app.use(patientRoutes);
 app.use(doctorRoutes);
 app.use(receptionistRutes);
 
-
 app.get("/", (req, res) => {
-   
-   res.sendFile(path.join(__dirname,"../public/html/index.html"))
+  res.sendFile(path.join(__dirname, "../public/html/index.html"));
 });
 
 app.get("/admin-dashboard", (req, res) => {
-    res.render("admin-dashboard");
+  res.render("admin-dashboard",{
+    url: "/admin-dashboard/create",
+    title: "Recent Activity",
+  });
 });
 
 app.get("/doctor-dashboard", (req, res) => {
-    res.render("doctor-dashboard");
+  res.render("doctor-dashboard", {
+    url: "/admin-dashboard/create",
+    title: "Docotrs List",
+  });
 });
 
 app.get("/receptionist-dashboard", (req, res) => {
-    res.render("receptionist-dashboard");
+  res.render("receptionist-dashboard" ,{
+    url: "/admin-dashboard/create",
+    title: "Receptionist List",
+  });
 });
 
 app.get("/patient-dashboard", (req, res) => {
-    res.render("patient-dashboard");
+  res.render("patient-dashboard", {
+    url: "/admin-dashboard/create",
+    title: "Patients List",
+  });
 });
 app.get("/apoinments", (req, res) => {
-    res.render("apoinments");
+  res.render("apoinments", {
+    url: "/admin-dashboard/create",
+    title: "Appoinments List",
+  });
+});
+app.get("*/create", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/html/createDoctor.html"));
 });
 
-
 app.get("/*", (req, res) => {
-   
-    res.sendFile(path.join(__dirname,"../public/html/404.html"))
- });
+  res.sendFile(path.join(__dirname, "../public/html/404.html"));
+});
 
-//server 
+//server
 app.listen(port, () =>
   console.log(`server is online at http://localhost:${port}/`)
 );

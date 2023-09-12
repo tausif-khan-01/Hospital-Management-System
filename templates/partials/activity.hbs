@@ -1,10 +1,15 @@
+<script>
+  Handlebars.registerHelper('loud', function(string) { return
+  string.toUpperCase() });
+
+</script>
 <div class="activity">
   <div class="activity-head">
-   <div class="title">
-     <i class="uil uil-clock-three"></i>
-    <span class="text">Recent Activity</span>
-   </div>
-    <button class="add-Btn" role="button">add</button>
+    <div class="title">
+      <i class="uil uil-clock-three"></i>
+      <span class="text">{{title}}</span>
+    </div>
+    <a class="add-Btn" href={{url}}>add</a>
 
   </div>
 
