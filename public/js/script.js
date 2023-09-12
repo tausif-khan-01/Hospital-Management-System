@@ -30,3 +30,24 @@ sidebarToggle.addEventListener("click", () => {
         localStorage.setItem("status", "open");
     }
 })
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    var listItems = document.querySelectorAll(".menu-items li");
+    
+    listItems.forEach(function (item) {
+        item.addEventListener("click", function () {
+            listItems.forEach(function (li) {
+                li.classList.remove("active");
+                
+                
+            });
+            this.classList.add("active");
+        });
+    });
+});
+
+
+
+
+
