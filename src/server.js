@@ -53,27 +53,27 @@ app.get("/admin-dashboard", (req, res) => {
 
 app.get("/doctor-dashboard", (req, res) => {
   res.render("doctor-dashboard", {
-    url: "/admin-dashboard/create",
+    url: "/doctor-dashboard/create",
     title: "Docotrs List",
   });
 });
 
 app.get("/receptionist-dashboard", (req, res) => {
   res.render("receptionist-dashboard" ,{
-    url: "/admin-dashboard/create",
+    url: "/receptionist-dashboard/create",
     title: "Receptionist List",
   });
 });
 
 app.get("/patient-dashboard", (req, res) => {
   res.render("patient-dashboard", {
-    url: "/admin-dashboard/create",
+    url: "/patient-dashboard/create",
     title: "Patients List",
   });
 });
 app.get("/apoinments", (req, res) => {
   res.render("apoinments", {
-    url: "/admin-dashboard/create",
+    url: "/apoinments/create",
     title: "Appoinments List",
   });
 });

@@ -4,11 +4,13 @@ const router = new express.Router();
 
 router.post("/doctor", async (req, res) => {
   try {
+    console.log(req.body);
     const doctor = new DoctorData(req.body);
     const sevedDoctor = await doctor.save();
     console.log(sevedDoctor);
-    res.status(201).send(sevedDoctor);
+    res.status(201).send();
   } catch (error) {
+    console.log(error);
     res.status(400).send(error);
   }
 });
@@ -47,10 +49,10 @@ router.delete("/doctor", async (req, res) => {
     const deletedDoctor = await DoctorData.findByIdAndDelete(_id);
     console.log(deletedDoctor);
     res.status(201).send(deletedDoctor);
-      } catch (error) {
-        console.log(error);
-        res.status(400).send(error);
-      }
-    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+});
 
 module.exports = router;
