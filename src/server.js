@@ -44,35 +44,52 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/html/index.html"));
 });
 
-app.get("/admin-dashboard", (req, res) => {
+
+// Admin +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/html/admin.html"));
+
+
+  
+});
+app.get("/admin/dashboard", (req, res) => {
   res.render("admin-dashboard",{
+    user : "admin",
     url: "/admin-dashboard/create",
     title: "Recent Activity",
   });
 });
 
-app.get("/doctor-dashboard", (req, res) => {
+app.get("/admin/doctor", (req, res) => {
+  user : "admin",
   res.render("doctor-dashboard", {
+     user : "admin",
     url: "/doctor-dashboard/create",
     title: "Docotrs List",
+
   });
 });
 
-app.get("/receptionist-dashboard", (req, res) => {
+app.get("/admin/receptionist", (req, res) => {
   res.render("receptionist-dashboard" ,{
+     user : "admin",
     url: "/receptionist-dashboard/create",
     title: "Receptionist List",
   });
 });
 
-app.get("/patient-dashboard", (req, res) => {
+app.get("/admin/patient", (req, res) => {
   res.render("patient-dashboard", {
+     user : "admin",
     url: "/patient-dashboard/create",
     title: "Patients List",
   });
 });
-app.get("/apoinments", (req, res) => {
+app.get("/admin/apoinments", (req, res) => {
   res.render("apoinments", {
+     user : "admin",
     url: "/apoinments/create",
     title: "Appoinments List",
   });
