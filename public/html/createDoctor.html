@@ -87,22 +87,22 @@
         const phone = document.getElementById("phone").value;
         const password = document.getElementById("password").value;
 
-        if (name.length < 3) {
-          alert("Enter Your Full Name");
-          return;
-        } else if (username.length < 6) {
-          alert("Username should contain at least 6 characters");
-          return;
-        } else if (email.length < 3) {
-          alert("invalid email");
-          return;
-        } else if (phone.length < 3) {
-          alert("invalid mobile number");
-          return;
-        } else if (password.length < 3) {
-          alert("Password should contain at least 6 characters");
-          return;
-        }
+        // if (name.length < 3) {
+        //   alert("Enter Your Full Name");
+        //   return;
+        // } else if (username.length < 6) {
+        //   alert("Username should contain at least 6 characters");
+        //   return;
+        // } else if (email.length < 3) {
+        //   alert("invalid email");
+        //   return;
+        // } else if (phone.length < 3) {
+        //   alert("invalid mobile number");
+        //   return;
+        // } else if (password.length < 3) {
+        //   alert("Password should contain at least 6 characters");
+        //   return;
+        // }
 
         try {
           let response = await fetch("/doctor", {
