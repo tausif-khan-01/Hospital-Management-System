@@ -2,7 +2,9 @@ const express = require("express");
 const DoctorData = require("../models/doctor");
 const router = new express.Router();
 
-router.post("/doctor", async (req, res) => {
+//*<=======================Doctor APIs =====================>
+
+router.post("/api/doctor", async (req, res) => {
   try {
     console.log(req.body);
     const doctor = new DoctorData(req.body);
@@ -15,7 +17,7 @@ router.post("/doctor", async (req, res) => {
   }
 });
 
-router.get("/doctor", async (req, res) => {
+router.get("/api/doctor", async (req, res) => {
   try {
     const doctor = await DoctorData.find(req.query);
 
@@ -27,7 +29,7 @@ router.get("/doctor", async (req, res) => {
   }
 });
 
-router.patch("/doctor", async (req, res) => {
+router.patch("/api/doctor", async (req, res) => {
   try {
     const _id = await req.query.id;
 
@@ -43,7 +45,7 @@ router.patch("/doctor", async (req, res) => {
   }
 });
 
-router.delete("/doctor", async (req, res) => {
+router.delete("/api/doctor", async (req, res) => {
   try {
     const _id = await req.query.id;
     const deletedDoctor = await DoctorData.findByIdAndDelete(_id);

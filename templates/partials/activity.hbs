@@ -52,7 +52,7 @@
 <script>
   const getData = async () => {
     try {
-      let response = await fetch("http://localhost:8000/doctor");
+      let response = await fetch("http://localhost:8000/api/doctor");
       let data = await response.json(); // Note the use of await here
 
       let table = new DataTable('#example', {

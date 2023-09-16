@@ -2,7 +2,6 @@ const express = require("express");
 const ReceptionistData = require("../models/Receptionist");
 const router = new express.Router();
 
-
 router.post("/receptionist", async (req, res) => {
   try {
     const receptionist = new ReceptionistData(req.body);
@@ -26,7 +25,6 @@ router.get("/receptionist", async (req, res) => {
   }
 });
 
-
 router.patch("/receptionist", async (req, res) => {
   try {
     const _id = await req.query.id;
@@ -47,7 +45,6 @@ router.patch("/receptionist", async (req, res) => {
   }
 });
 
-
 router.delete("/receptionist", async (req, res) => {
   try {
     const _id = await req.query.id;
@@ -59,6 +56,5 @@ router.delete("/receptionist", async (req, res) => {
     res.status(400).send(error);
   }
 });
-
 
 module.exports = router;

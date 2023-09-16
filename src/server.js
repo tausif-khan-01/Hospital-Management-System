@@ -45,15 +45,16 @@ app.get("/", (req, res) => {
 });
 
 
+
+
 // Admin +++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
 app.get("/admin", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/html/admin.html"));
 
 
   
 });
+
 app.get("/admin/dashboard", (req, res) => {
   res.render("admin-dashboard",{
     user : "admin",
@@ -63,7 +64,6 @@ app.get("/admin/dashboard", (req, res) => {
 });
 
 app.get("/admin/doctor", (req, res) => {
-  user : "admin",
   res.render("doctor-dashboard", {
      user : "admin",
     url: "/doctor-dashboard/create",
@@ -94,9 +94,13 @@ app.get("/admin/apoinments", (req, res) => {
     title: "Appoinments List",
   });
 });
+
 app.get("*/create", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/html/createDoctor.html"));
 });
+
+
+
 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/html/404.html"));
