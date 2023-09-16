@@ -18,10 +18,10 @@ const doctorRoutes = require("../routers/DoctorRoutes");
 const receptionistRutes = require("../routers/receptionistRutes");
 
 //necessary directories path
-const viewPath = path.join(__dirname, "../templates/views");
-const partialsPath = path.join(__dirname, "../templates/partials");
-//const templatePath = path.join(__dirname, "../templates");
-const publicPath = path.join(__dirname, "../public");
+const viewPath = path.join(__dirname, "../../templates/views");
+const partialsPath = path.join(__dirname, "../../templates/partials");
+//const templatePath = path.join(__dirname, "../../templates");
+const publicPath = path.join(__dirname, "../../public");
 
 //view engine setup
 app.set("view engine", "hbs");
@@ -41,7 +41,7 @@ app.use(doctorRoutes);
 app.use(receptionistRutes);
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/html/index.html"));
+  res.sendFile(path.join(__dirname, "../../public/html/index.html"));
 });
 
 
