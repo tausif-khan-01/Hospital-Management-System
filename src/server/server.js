@@ -6,16 +6,16 @@ const fs = require("fs");
 const url = require("url");
 
 //connection to database
-require("./db/connection");
+require("../db/connection");
 
 //express setup
 const app = express();
 const port = process.env.PORT || 8000;
 
 //requiring  costum modules
-const patientRoutes = require("./routers/patientRoutes");
-const doctorRoutes = require("./routers/DoctorRoutes");
-const receptionistRutes = require("./routers/receptionistRutes");
+const patientRoutes = require("../routers/patientRoutes");
+const doctorRoutes = require("../routers/DoctorRoutes");
+const receptionistRutes = require("../routers/receptionistRutes");
 
 //necessary directories path
 const viewPath = path.join(__dirname, "../templates/views");
@@ -47,12 +47,9 @@ app.get("/", (req, res) => {
 
 
 
-// Admin +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//? Admin +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 app.get("/admin", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/html/admin.html"));
 
-
-  
 });
 
 app.get("/admin/dashboard", (req, res) => {
@@ -105,6 +102,8 @@ app.get("*/create", (req, res) => {
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/html/404.html"));
 });
+
+
 
 //server
 app.listen(port, () =>
