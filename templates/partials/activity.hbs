@@ -23,7 +23,6 @@
         <th>Email</th>
         <th>Phone No.</th>
         <th>actions</th>
-
       </tr>
     </thead>
 
@@ -49,40 +48,58 @@
 <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
 
 
-<script>
+<script type="module">
   const getData = async () => {
     try {
-      let response = await fetch("http://localhost:8000/api/doctor");
-      let data = await response.json(); // Note the use of await here
+      let response = await fetch(`{{getDataApi}}`);
+      let data = await response.json();
 
       let table = new DataTable('#example', {
-        //ajax: 'data/objects.txt',
         responsive: true,
         select: true,
-
-        "data": data,
+        data: data,
         columns: [
           { data: 'name' },
           { data: 'username' },
           { data: 'email' },
           { data: 'phone' },
-          
-
+          {
+            // Actions column
+            data: null,
+            render: function (data, type, row) {
+              // Render Edit and Delete buttons
+              return `
+              <button class="btn btn-warning edit-button" data-id="${row._id}"><i class="bi bi-pencil"></i> Edit</button>
+              <button class="btn btn-danger delete-button" data-id="${row._id}"><i class="bi bi-trash"></i> Delete</button>
+            `;
+            },
+          },
         ],
         dom: '<"dt-buttons"Bf><"clear">lirtp',
         paging: true,
         autoWidth: true,
         buttons: [
-
           "colvis",
-
           "excelHtml5",
-
           "print",
-         
-        
+        ],
+      });
 
-        ]
+      // Add click event listeners for Edit and Delete buttons
+      $('#example').on('click', '.edit-button', function (e) {
+        const rowId = $(this).data('id');
+
+
+
+        // Add your edit logic here, e.g., open a modal for editing
+        console.log('Edit clicked for row with ID: ' + rowId);
+      });
+
+      $('#example').on('click', '.delete-button', function () {
+
+        const rowId = $(this).data('id');
+        // Add your delete logic here, e.g., show a confirmation dialog
+        console.log('Delete clicked for row with ID: ' + rowId);
       });
     } catch (error) {
       console.error(error);
@@ -90,7 +107,5 @@
   };
 
   getData();
-
-
 
 </script>

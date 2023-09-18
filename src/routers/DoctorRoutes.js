@@ -21,7 +21,6 @@ router.get("/api/doctor", async (req, res) => {
   try {
     const doctor = await DoctorData.find(req.query);
 
-    console.log(doctor);
     res.status(201).send(doctor);
   } catch (error) {
     console.log(error);
