@@ -28,7 +28,6 @@ router.get("/api/receptionist", async (req, res) => {
 router.patch("/api/receptionist", async (req, res) => {
   try {
     const _id = await req.query.id;
-
     const updatedReceptionist = await ReceptionistData.findByIdAndUpdate(
       _id,
       req.body,
@@ -36,7 +35,6 @@ router.patch("/api/receptionist", async (req, res) => {
         new: true,
       }
     );
-
     console.log(updatedReceptionist);
     res.status(201).send(updatedReceptionist);
   } catch (error) {
