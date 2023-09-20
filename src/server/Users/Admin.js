@@ -5,7 +5,7 @@ const router = new express.Router();
 router.get("/admin/dashboard", (req, res) => {
   res.render("admin-dashboard", {
     user: "admin",
-    url: "/admin-dashboard/create",
+    url: "/create",
     title: "Recent Activity",
     getDataApi: "http://localhost:8000/api/doctor",
   });
@@ -25,6 +25,7 @@ router.get("/admin/receptionist", (req, res) => {
     user: "admin",
     url: "/receptionist-dashboard/create",
     title: "Receptionist List",
+    getDataApi: "http://localhost:8000/api/receptionist"
   });
 });
 
@@ -33,13 +34,15 @@ router.get("/admin/patient", (req, res) => {
     user: "admin",
     url: "/patient-dashboard/create",
     title: "Patients List",
+    getDataApi: "http://localhost:8000/api/patient"
   });
 });
 router.get("/admin/apoinments", (req, res) => {
   res.render("apoinments", {
     user: "admin",
     url: "/apoinments/create",
-    title: "Appoinments List",
+    title: "Appoinments List", 
+
   });
 });
 

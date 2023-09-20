@@ -67,9 +67,26 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/html/index.html"));
 });
 
-app.get("*/create", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/html/createDoctor.html"));
+app.get("*/create/doctor", (req, res) => {
+  res.render("create",{
+    postUrl : "doctor"
+  })
 });
+app.get("*/create/receptionist", (req, res) => {
+  res.render("create",{
+    postUrl : "receptionist"
+  })
+});
+app.get("*/create/patient", (req, res) => {
+  res.render("create",{
+    postUrl : "patient"
+  })
+});
+// app.get("*/create/doctor", (req, res) => {
+//   res.render("create",{
+//     postUrl : "doctor"
+//   })
+// });
 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/html/404.html"));

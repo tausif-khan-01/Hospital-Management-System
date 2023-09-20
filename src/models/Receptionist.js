@@ -11,13 +11,6 @@ const recepitonistSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: [true, "email must be unique"],
-    validate(val) {
-      let regexPattern = /^[a-zA-Z0-9]+$/;
-
-      if (!regexPattern.test(val)) {
-        throw new Error("invalid username");
-      }
-    },
   },
   password: {
     type: String,
@@ -27,8 +20,6 @@ const recepitonistSchema = new mongoose.Schema({
     type: String,
     unique: true,
     required: true,
-
-   
 
     validate(val) {
       if (!validator.isEmail(val)) {
